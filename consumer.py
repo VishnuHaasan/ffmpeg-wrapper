@@ -30,6 +30,8 @@ if __name__ == "__main__":
     channel.queue_declare(queue='merge_vids')
     channel.queue_declare(queue='burn_subs')
     channel.queue_declare(queue='add_color_filters')
+    channel.queue_declare(queue='change_video_and_audio_speed')
+    channel.queue_declare(queue='mute_video')
 
     channel.queue_bind(exchange='task_exchange', queue='compress_and_crop', routing_key='compress_and_crop')
     channel.queue_bind(exchange='task_exchange', queue='extract_subs', routing_key='extract_subs')
@@ -38,6 +40,8 @@ if __name__ == "__main__":
     channel.queue_bind(exchange='task_exchange', queue='merge_vids', routing_key='merge_vids')
     channel.queue_bind(exchange='task_exchange', queue='burn_subs', routing_key='burn_subs')
     channel.queue_bind(exchange='task_exchange', queue='add_color_filters', routing_key='add_color_filters')
+    channel.queue_bind(exchange='task_exchange', queue='change_video_and_audio_speed', routing_key='change_video_and_audio_speed')
+    channel.queue_bind(exchange='task_exchange', queue='mute_video', routing_key='mute_video')
     logging.info("Queues and bindings created successfully.")
 
     channel.basic_consume(queue='compress_and_crop', on_message_callback=compress_and_crop, auto_ack=True)

@@ -1,2 +1,4 @@
 vingest/
 application.log
+__pycache__
+*.pyc

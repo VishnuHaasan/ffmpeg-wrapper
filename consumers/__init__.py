@@ -5,3 +5,5 @@ from .merge_videos import merge_vids
 from .video_cropping import compress_and_crop
 from .burn_subs import burn_subs_into_video
 from .add_color_filters import add_color_filters
+from .change_video_and_audio_speed import change_video_and_audio_speed
+from .mute_video import mute_video
